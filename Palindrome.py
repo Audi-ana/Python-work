@@ -12,4 +12,3 @@ def Pali(word):
 
 user = input('Give me a word:')
 Pali(user)
-
