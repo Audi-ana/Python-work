@@ -29,20 +29,33 @@ def smallest(num):
 #print(smallest([50, 6, -1, 100]))
 
 
+numbers = [0,1,2,3,5,6,7,8,9]
+missing_num = ""
+
+def missing(num):
+    for x in range(10):
+        if num[x] != num[x] +1:
+            missing_num = num[x]
+            return missing_num 
+
+print(missing(numbers))
 
 
-def missing(num_list):
-    original_list = [x for x in range(num_list[0], num_list[-1] + 1)]
-    num_list = set(num_list)
-    return (list(num_list ^ set(original_list)))
+user = [1,2,3,4,5]
 
-print(missing([0,1,2,4,8,9]))
+def repeat(numbers):
+    dup = [1,2,3,4,5]
+    for i in range(0, len(user)):
+        print(user + dup)
+        break
+        
+#print(repeat(user))
 
-
-
-
-
+#def pyr(star):
+    #for index in range(0, 17, 2)
 
 
     
+    
+
 
