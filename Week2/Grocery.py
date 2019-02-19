@@ -24,6 +24,13 @@ class StoreItem:
         self.quantity = quantity
         self.price = price
         
+
+
+    # def subtotal(self):
+
+
+
+        
 def add_shopping_list():
     name = input("Store name:")
     shopping_list = Store(name)
@@ -48,7 +55,10 @@ def add_item():
 
     shopping_list.grocery_items.append(grocery_items)
     
-
+def store_item_total():
+    view_all_stores()
+    for index in range(0,len(stores)):
+        print(index)
 
 while user_input != "q":
         menu()
@@ -59,6 +69,8 @@ while user_input != "q":
             add_item()
         elif user_input == "3":
             view_all_stores()
+            store_item_total()
+
 
     
     
