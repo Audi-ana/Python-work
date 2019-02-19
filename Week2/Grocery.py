@@ -1,10 +1,13 @@
 user_input = ""
 stores = []
 
+
+
+
 def menu():
     print("Press 1 to add a store:")
     print("Press 2 to add item to store list:")
-    print("Press 3 view all stores:")
+    print("Press 3 view all shopping lists:")
     print("Press q to quit")
 
 
@@ -12,52 +15,50 @@ def menu():
 class Store: 
     def __init__(self,store_name):
         self.store_name = store_name
-        self.items = []
+        self.grocery_items = []
+        
 
-
-def add_store():
-    store_name = input("Store name:")
-    store = Store(store_name)
-    stores.append(store)
-    view_all_stores()
-
-def view_all_stores():
-    for store in stores:
-        stores.index(store)
-        print(f'{stores.index(store)+1} - {store.store_name}')
-
-class ShoppingList:
-    def __init__(self,item,quantity):
+class StoreItem:
+    def __init__(self,item,quantity, price):
         self.item = item
         self.quantity = quantity
+        self.price = price
+        
+def add_shopping_list():
+    name = input("Store name:")
+    shopping_list = Store(name)
+    stores.append(shopping_list)
 
+def view_all_stores():
+    
+    for index in range(0,len(stores)):
+        shopping_list = stores[index]
+        print(f"{index+1} - {shopping_list.store_name}")
+        for grocery_item in shopping_list.grocery_items:
+            print(f"{grocery_item.item} - {grocery_item.quantity} - {grocery_item.price}")
 
 def add_item():
-    x = ""
-    x = print(f'New item:{item},{quantity}')
-    Store.item.append(x)
+    view_all_stores()
+    shopping_list_number = int(input("Enter shopping list number to add the grocery item:"))
+    shopping_list = stores[shopping_list_number -1]
+    item = input("Enter the item:")
+    quantity = float(input("Enter quantity:"))
+    price = float(input("Enter price of item:"))
+    grocery_items = StoreItem(item,quantity,price)
 
-    
+    shopping_list.grocery_items.append(grocery_items)
     
 
 
-
-    
-   
-    
 while user_input != "q":
         menu()
         user_input = input("Enter your choice: ")
         if user_input  == "1":
-            add_store()
+            add_shopping_list()
         elif user_input == "2":
             add_item()
         elif user_input == "3":
             view_all_stores()
-            
-menu()
-
-
 
     
     
